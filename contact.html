@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact us form</title>
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color:beige;
+    }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centers the form vertically on the page */
+}
+/* Maximum width of the form */
+form {
+    max-width: 500px; 
+}
+
+label {
+    display: block; 
+    margin-bottom: 10px; 
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%; /* Make inputs and textarea take full width of the form */
+    padding: 10px; /* Add padding for input elements */
+    margin-bottom: 15px; /* Add space between input elements */
+    border: 1px solid #000000; /* Add a border for input elements */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+select {
+    height: 35px; /* Set the select input height */
+}
+
+textarea {
+    height: 120px; /* Set the textarea height */
+}
+
+/* Change button color */
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Change button hover color */
+input[type="submit"]:hover {
+    background-color: #00cc0e;
+}
+
+/* Styles for back button */
+.back-button {
+  background-color: #0074d9; /* Set the background color */
+  color: #fff; /* Set the text color */
+  padding: 10px 20px 10px; /* Adjust the padding for spacing */
+  text-decoration: none; 
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background-color: #81bbf5; /* Change background color on hover */
+  color:#000000;
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+</style>
+<body>
+    <div id="navbar">
+    <a href="javascript:history.back()" class="back-button">Back to meals by LR</a>
+    </div>
+
+    <div class="container">
+
+        <form action="#">
+
+        <h1>Contact us for further informations</h1>
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name goes here">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name goes here">
+      
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="slovenia">Sovenia</option>
+            <option value="canada">Europe</option>
+            <option value="usa">USA</option>
+            <option value="australia">Australia</option>
+            <option value="usa">Other</option>
+          </select>
+
+          <label for="lname">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email goes here">
+      
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Write subject">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="subject" placeholder="Write something here.." style="height:120px; width:500px;"></textarea>
+      
+          <input type="submit" id= "submit" value="Submit">
+      
+        </form>
+      </div>
+
+
+
+<script>
+    function validateForm() {
+  var name =  document.getElementById('fname').value;
+  if (name == "") {
+      document.querySelector('.status').innerHTML = "Name cannot be empty";
+      return false;
+  }
+}
+  function validateForm() {
+  var name =  document.getElementById('lname').value;
+  if (name == "") {
+      document.querySelector('.status').innerHTML = "Name cannot be empty";
+      return false;
+  }
+}
+
+  var email =  document.getElementById('email').value;
+  if (email == "") {
+      document.querySelector('.status').innerHTML = "Email cannot be empty";
+      return false;
+  } else {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!re.test(email)){
+          document.querySelector('.status').innerHTML = "Email format invalid";
+          return false;
+      }
+  }
+  var subject =  document.getElementById('subject').value;
+  if (subject == "") {
+      document.querySelector('.status').innerHTML = "Subject cannot be empty";
+      return false;
+  }
+  var message =  document.getElementById('message').value;
+  if (message == "") {
+      document.querySelector('.status').innerHTML = "Message cannot be empty";
+      return false;
+  }
+  document.querySelector('.status').innerHTML = "Sending...";
+}
+</script>
+
+
+</body>
+</html>
+
